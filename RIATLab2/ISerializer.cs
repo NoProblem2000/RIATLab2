@@ -3,7 +3,7 @@
     public interface ISerializer
     {
         bool CanSerialize(string serializeFormat);
-        byte[] Serialize<T>(T obj);
-        T Deserialize<T>(byte[] serializedObj);
+        string Serialize<T>(T obj);
+        T Deserialize<T>(string serializedObj);
     }
 }

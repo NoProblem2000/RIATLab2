@@ -10,14 +10,14 @@ namespace RIATLab2
                 return serializeFormat == "Json";
             }
 
-            public byte[] Serialize<T>(T obj)
+            public string Serialize<T>(T obj)
             {
-                return Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(obj));
+                return JsonConvert.SerializeObject(obj);
             }
 
-            public T Deserialize<T>(byte[] serializedObj)
+            public T Deserialize<T>(string serializedObj)
             {
-                return JsonConvert.DeserializeObject<T>(Encoding.UTF8.GetString(serializedObj));
+                return JsonConvert.DeserializeObject<T>(serializedObj);
             }
         }
    }

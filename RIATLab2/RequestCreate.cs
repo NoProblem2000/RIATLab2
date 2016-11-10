@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Net;
+using System.Text;
 
 namespace RIATLab2
 {
@@ -36,9 +37,10 @@ namespace RIATLab2
         public void CreateHttpWebRequestWithBody<T>(T obj)
         {
             var requestBody = serializer.Serialize(obj);
+            byte[] array = Encoding.ASCII.GetBytes(requestBody);
             httpWebRequest.ContentLength = requestBody.Length;
             using (Stream stream = httpWebRequest.GetRequestStream())
-                stream.Write(requestBody, 0, requestBody.Length);
+                stream.Write(array, 0, requestBody.Length);
         }
 
     }
