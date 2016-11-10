@@ -15,11 +15,6 @@ namespace RIATLab2
             request.SendRequest(TypeRequest.GET, "Ping");
         }
 
-        public void Find(DictionaryLab2 keyvalue)
-        {
-            request.SendRequest(TypeRequest.GET, CreateFindDictionary(keyvalue));
-        }
-
         public void Create<T>(T obj)
         {
             request.SendRequest(TypeRequest.POST, "Create", obj);
@@ -33,11 +28,6 @@ namespace RIATLab2
         public void WriteAnswer(Output output)
         {
             request.SendRequest(TypeRequest.POST, "WriteAnswer");
-        }
-
-        public string CreateFindDictionary(DictionaryLab2 keyvalue)
-        {
-            return string.Format("Find?{0} = {1}", keyvalue.Key, keyvalue.Value);
         }
     }
 }
