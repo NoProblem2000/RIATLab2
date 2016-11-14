@@ -2,7 +2,8 @@
 {
     public enum TypeRequest
         {
-            GET,POST
+            GET,
+            POST
         }
     
 }

@@ -8,6 +8,7 @@ namespace RIATLab2
         public ISerializer IsSerializer;
         public RequestCreate requestCreate;
         public string url;
+        
 
         public Request(ISerializer iSerializer, string dom, int port)
         {
@@ -43,7 +44,7 @@ namespace RIATLab2
             {
                 try
                 {
-                    requestCreate.Create<T>(httpRequestType, method, obj, timeoutMs);
+                    requestCreate.Create(httpRequestType, method, obj, timeoutMs);
                 }
                 catch (WebException e)
                 {

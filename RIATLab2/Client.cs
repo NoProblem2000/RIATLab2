@@ -1,4 +1,5 @@
-﻿
+﻿using System.Text;
+
 namespace RIATLab2
 {
     class Client
@@ -15,19 +16,15 @@ namespace RIATLab2
             request.SendRequest(TypeRequest.GET, "Ping");
         }
 
-        public void Create<T>(T obj)
-        {
-            request.SendRequest(TypeRequest.POST, "Create", obj);
-        }
-
         public Input GetInputData()
         {
             return request.SendRequestInput(TypeRequest.GET, "GetInputData");
         }
 
-        public void WriteAnswer(Output output)
+        public void WriteAnswer(Output output, ISerializer iSerializer)
         {
-            request.SendRequest(TypeRequest.POST, "WriteAnswer");
+            byte[] body = Encoding.ASCII.GetBytes(iSerializer.Serialize(output));
+            request.SendRequest(TypeRequest.POST, "WriteAnswer", body);
         }
     }
 }

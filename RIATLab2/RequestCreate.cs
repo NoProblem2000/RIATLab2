@@ -9,6 +9,7 @@ namespace RIATLab2
         public static ISerializer serializer;
         public static string url;
         public static HttpWebRequest httpWebRequest { get; set; }
+        public HttpWebResponse HttpWebResponse;
 
         public RequestCreate(ISerializer serializer1, string url1)
         {
@@ -29,9 +30,14 @@ namespace RIATLab2
 
         public void CreateHttpWebRequest(TypeRequest type,string method, int timeout)
         {
+            
             httpWebRequest = (HttpWebRequest) WebRequest.Create(string.Format("{0}/{1}",url, method));
             httpWebRequest.Timeout = timeout;
             httpWebRequest.Method = type.ToString();
+            if (type == TypeRequest.GET)
+            {
+                HttpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            }
         }
 
         public void CreateHttpWebRequestWithBody<T>(T obj)
@@ -39,8 +45,8 @@ namespace RIATLab2
             var requestBody = serializer.Serialize(obj);
             byte[] array = Encoding.ASCII.GetBytes(requestBody);
             httpWebRequest.ContentLength = requestBody.Length;
-            using (Stream stream = httpWebRequest.GetRequestStream())
-                stream.Write(array, 0, requestBody.Length);
+            httpWebRequest.GetRequestStream().Write(array, 0, requestBody.Length);
+            httpWebRequest.GetResponse();
         }
 
     }
