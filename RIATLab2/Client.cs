@@ -21,10 +21,9 @@ namespace RIATLab2
             return request.SendRequestInput(TypeRequest.GET, "GetInputData");
         }
 
-        public void WriteAnswer(Output output, ISerializer iSerializer)
+        public void WriteAnswer(Output output)
         {
-            byte[] body = Encoding.UTF8.GetBytes(iSerializer.Serialize(output));
-            request.SendRequest(TypeRequest.POST, "WriteAnswer", body);
+           request.SendRequest(TypeRequest.POST, "WriteAnswer", output);
         }
     }
 }
