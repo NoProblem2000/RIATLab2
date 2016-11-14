@@ -23,7 +23,7 @@ namespace RIATLab2
 
         public void WriteAnswer(Output output, ISerializer iSerializer)
         {
-            byte[] body = Encoding.ASCII.GetBytes(iSerializer.Serialize(output));
+            byte[] body = Encoding.UTF8.GetBytes(iSerializer.Serialize(output));
             request.SendRequest(TypeRequest.POST, "WriteAnswer", body);
         }
     }

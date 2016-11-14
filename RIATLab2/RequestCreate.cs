@@ -43,7 +43,7 @@ namespace RIATLab2
         public void CreateHttpWebRequestWithBody<T>(T obj)
         {
             var requestBody = serializer.Serialize(obj);
-            byte[] array = Encoding.ASCII.GetBytes(requestBody);
+            byte[] array = Encoding.UTF8.GetBytes(requestBody);
             httpWebRequest.ContentLength = requestBody.Length;
             httpWebRequest.GetRequestStream().Write(array, 0, requestBody.Length);
             httpWebRequest.GetResponse();
