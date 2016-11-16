@@ -30,10 +30,11 @@ namespace RIATLab2
                 }
                 catch (WebException e)
                 {
-                    if (e.Status != WebExceptionStatus.Timeout &&
-					    e.Status != WebExceptionStatus.ReceiveFailure &&
-					    e.Status != WebExceptionStatus.NameResolutionFailure)
-						throw;
+                    //if (e.Status != WebExceptionStatus.Timeout &&
+                    //    e.Status != WebExceptionStatus.ReceiveFailure &&
+                    //    e.Status != WebExceptionStatus.NameResolutionFailure)
+                    
+
                 }
             }
         }
@@ -48,10 +49,10 @@ namespace RIATLab2
                 }
                 catch (WebException e)
                 {
-                    if (e.Status != WebExceptionStatus.Timeout &&
-                        e.Status != WebExceptionStatus.ReceiveFailure &&
-                        e.Status != WebExceptionStatus.NameResolutionFailure)
-                        throw;
+                    //if (e.Status != WebExceptionStatus.Timeout &&
+                    //    e.Status != WebExceptionStatus.ReceiveFailure &&
+                    //    e.Status != WebExceptionStatus.NameResolutionFailure)
+                    
                 }
             }
         }
@@ -66,10 +67,10 @@ namespace RIATLab2
                 }
                 catch (WebException e)
                 {
-                    if (e.Status != WebExceptionStatus.Timeout &&
-                        e.Status != WebExceptionStatus.ReceiveFailure &&
-                        e.Status != WebExceptionStatus.NameResolutionFailure)
-                        throw;
+                    //if (e.Status != WebExceptionStatus.Timeout &&
+                    //    e.Status != WebExceptionStatus.ReceiveFailure &&
+                    //    e.Status != WebExceptionStatus.NameResolutionFailure)
+                    
                 }
             }
         }
