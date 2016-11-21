@@ -1,29 +1,27 @@
-﻿using System.Text;
-
-namespace RIATLab2
+﻿namespace RIATLab2
 {
     class Client
     {
-        public Request request;
+        public Request Request;
 
         public Client(ISerializer iSerializer, string dom, int port)
         {
-            request = new Request(iSerializer, dom, port);
+            Request = new Request(iSerializer, dom, port);
         }
 
         public void Ping()
         {
-            request.SendRequest(TypeRequest.GET, "Ping");
+            Request.SendRequest(TypeRequest.GET, "Ping");
         }
 
         public Input GetInputData()
         {
-            return request.SendRequestInput(TypeRequest.GET, "GetInputData");
+            return Request.SendRequestInput(TypeRequest.GET, "GetInputData");
         }
 
         public void WriteAnswer(Output output)
         {
-           request.SendRequest(TypeRequest.POST, "WriteAnswer", output);
+           Request.SendRequest(TypeRequest.POST, "WriteAnswer", output);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 
 namespace RIATLab2
 {
@@ -33,13 +32,11 @@ namespace RIATLab2
                     //if (e.Status != WebExceptionStatus.Timeout &&
                     //    e.Status != WebExceptionStatus.ReceiveFailure &&
                     //    e.Status != WebExceptionStatus.NameResolutionFailure)
-                    
-
                 }
             }
         }
 
-        public void SendRequest<T>(TypeRequest httpRequestType, string method, T obj, int timeoutMs = 1000)
+        public void SendRequest(TypeRequest httpRequestType, string method, object obj, int timeoutMs = 1000)
         {
             while (true)
             {
@@ -70,7 +67,6 @@ namespace RIATLab2
                     //if (e.Status != WebExceptionStatus.Timeout &&
                     //    e.Status != WebExceptionStatus.ReceiveFailure &&
                     //    e.Status != WebExceptionStatus.NameResolutionFailure)
-                    
                 }
             }
         }

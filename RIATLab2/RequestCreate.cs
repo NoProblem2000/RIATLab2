@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Net;
+﻿using System.Net;
 using System.Text;
 
 namespace RIATLab2
@@ -22,7 +21,7 @@ namespace RIATLab2
             CreateHttpWebRequest(type,method, timeout);
         }
 
-        public void Create<T>(TypeRequest type, string method, T obj, int timeout)
+        public void Create(TypeRequest type, string method, object obj, int timeout)
         {
             CreateHttpWebRequest(type, method, timeout);
             CreateHttpWebRequestWithBody(obj);
@@ -40,7 +39,7 @@ namespace RIATLab2
             }
         }
 
-        public void CreateHttpWebRequestWithBody<T>(T obj)
+        public void CreateHttpWebRequestWithBody(object obj)
         {
             var requestBody = serializer.Serialize(obj);
             byte[] array = Encoding.UTF8.GetBytes(requestBody);
