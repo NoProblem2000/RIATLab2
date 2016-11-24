@@ -12,7 +12,7 @@ namespace RIATLab2
 
             Client client = new Client(iSerializer, dom, port);
             client.Ping();
-            Input input = iSerializer.Deserialize<Input>(Convert.ToString(client.GetInputData()));
+            Input input = client.GetInputData();
             var output = input.DoOutPut();
             client.WriteAnswer(output);
         }

@@ -16,15 +16,17 @@ namespace RIATLab2
             url = url1;
         }
 
-        public void Create(TypeRequest type, string method, int timeout)
+        public HttpWebResponse Create(TypeRequest type, string method, int timeout)
         {
             CreateHttpWebRequest(type,method, timeout);
+            return HttpWebResponse;
         }
 
-        public void Create(TypeRequest type, string method, object obj, int timeout)
+        public HttpWebResponse Create(TypeRequest type, string method, object obj, int timeout)
         {
             CreateHttpWebRequest(type, method, timeout);
             CreateHttpWebRequestWithBody(obj);
+            return HttpWebResponse;
         }
 
         public void CreateHttpWebRequest(TypeRequest type,string method, int timeout)
